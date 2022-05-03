@@ -1,0 +1,26 @@
+.product-detail{
+    .product-info{
+.product-spec{
+    height: 200px;
+    overflow-y: hidden;
+    &.active-spec{
+height: 100%;
+
+    }
+}
+    }
+}
+
+
+
+.box{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position: relative;
+    left: 0;
+    transition: .4s ease-in-out;
+    &.active{
+        left: 200px;
+    }
+}
