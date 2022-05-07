@@ -14,8 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { AddShoppingCart } from '@mui/icons-material';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+import { changeLanguageACTION } from '../../Redux/Action/LanguageAction';
+import { useDispatch } from 'react-redux';
 
 const pages = [
   {name: "Home",path:"/"},
@@ -49,6 +51,7 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const dispatch=useDispatch()
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -109,7 +112,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
             <Button
-            component={Link} 
+            component={"Button"} 
             to={`${page.path}`}
                 key={page.name}
                 onClick={handleCloseNavMenu}
@@ -118,6 +121,26 @@ const Header = () => {
                 {page.name}
               </Button>
             ))}
+
+            <Button
+            component={"Button"} 
+            to={`#`}
+             
+                onClick={()=>dispatch(changeLanguageACTION("AZ"))}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+               AZ
+              </Button>
+
+              <Button
+            component={Link} 
+            to={`#`}
+             
+                onClick={()=>dispatch(changeLanguageACTION("RU"))}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+               RU
+              </Button>
           </Box>
 <Box mx={5} sx={{ flexGrow: 0}}>
 <Link to="/cart">
